@@ -261,7 +261,7 @@ test.group('Frameworks | SSR', (group) => {
       export default inertiaConfig
 
       declare module '@adonisjs/inertia/types' {
-        export interface SharedProps extends InferSharedProps<typeof inertiaConfig> {}
+        export type SharedProps = InferSharedProps<typeof inertiaConfig> & {}
       }"
     `)
   })
@@ -314,7 +314,7 @@ test.group('Frameworks | SSR', (group) => {
       export default inertiaConfig
 
       declare module '@adonisjs/inertia/types' {
-        export interface SharedProps extends InferSharedProps<typeof inertiaConfig> {}
+        export type SharedProps = InferSharedProps<typeof inertiaConfig> & {}
       }"
     `)
   })
@@ -367,7 +367,7 @@ test.group('Frameworks | SSR', (group) => {
       export default inertiaConfig
 
       declare module '@adonisjs/inertia/types' {
-        export interface SharedProps extends InferSharedProps<typeof inertiaConfig> {}
+        export type SharedProps = InferSharedProps<typeof inertiaConfig> & {}
       }"
     `)
   })
