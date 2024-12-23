@@ -185,6 +185,12 @@ export type InferSharedProps<T extends ConfigProvider<ResolvedConfig>> = Returns
 >
 
 /**
+ * The shared props inferred from the user config user-land.
+ * Should be module augmented by the user
+ */
+export interface SharedProps {}
+
+/**
  * Helper for infering the page props from a Controller method that returns
  * inertia.render
  *
@@ -208,7 +214,10 @@ export type InferPageProps<
   Method extends keyof Controller,
 > = Controller[Method] extends (...args: any[]) => any
   ? Simplify<
-      Serialize<InferProps<Extract<Awaited<ReturnType<Controller[Method]>>, PageObject>['props']>>
+      Serialize<
+        InferProps<Extract<Awaited<ReturnType<Controller[Method]>>, PageObject>['props']> &
+          SharedProps
+      >
     >
   : never
 
